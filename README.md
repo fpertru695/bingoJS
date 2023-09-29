@@ -1,0 +1,2 @@
+# bingoJS
+Un bingo bonito
