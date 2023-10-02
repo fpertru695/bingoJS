@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/bingo.iml" filepath="$PROJECT_DIR$/.idea/bingo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/bingoJS.iml" filepath="$PROJECT_DIR$/.idea/bingoJS.iml" />
     </modules>
   </component>
 </project>
