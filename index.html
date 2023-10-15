@@ -6,33 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bingo</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="./css/main.css">
+  <script type="module" src="./index.js"></script>
 </head>
-<!--class="numbers"!-->
-<!--class="cards"!-->
+
 <body>
 <section class="top">
-  <div id="player" class="cartona">
+  <div id="player" class="card">
     <h2>PLAYER</h2>
-    <div id="jugador"></div>
+    <div class="numbers"></div>
   </div>
   <div id="drum">
-    <button id="generar" class="generar" onclick="generarNumero()"> Saca un número</button>
+    <div>Saca un número</div>
   </div>
-  <div id="computer" class="cartona">
+  <div id="computer" class="card">
     <h2>CPU</h2>
-    <div id="maquina"></div>
-
+    <div class="numbers"></div>
   </div>
 </section>
 <section class="bottom">
-  <div id="resultados"></div>
+  <div id="picked-numbers"></div>
 </section>
-<div id="resultado" class="resultado">
-  <button id="jugar" class="jugar" onclick="aJugar()"> COMENZAR JUEGO </button>
-  <div id="resultados2" class="resultados2"> </div>
-</div>
 </body>
 
 </html>

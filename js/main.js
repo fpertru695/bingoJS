@@ -3,7 +3,7 @@ let jugador = [];
 let maquina = [];
 let numerosTotal = [];
 
-// Generar array de numeros del 1 (min) al 90 (max)
+// Generar array de números del 1 (min) al 90 (max)
 function generarArray(min, max) {
   const array = [];
   for (let i = min; i <= max; i++) {
@@ -13,7 +13,7 @@ function generarArray(min, max) {
 }
 
 // Numeros aleatorios
-function Numeros90(array, cantidad) {
+function generarNumerosAleatorios(array, cantidad) {
   const nums = [];
   const copiaNums = array.slice();
 
@@ -28,21 +28,21 @@ function Numeros90(array, cantidad) {
 
 // Generar cartones
 function aJugar() {
-  jugador = Numeros90(generarArray(1, 90), 15); // Usar las variables globales en lugar de declarar nuevas
-  maquina = Numeros90(generarArray(1, 90), 15); // Usar las variables globales en lugar de declarar nuevas
+  jugador = generarNumerosAleatorios(generarArray(1, 90), 15);
+  maquina = generarNumerosAleatorios(generarArray(1, 90), 15);
 
-  const res1 = document.getElementById("jugador");
-  const res2 = document.getElementById("maquina");
+  const res1 = document.getElementById("player");
+  const res2 = document.getElementById("computer");
 
   function formatearCarton(numeros) {
     let cartonHTML = '<table>';
-    let cellCounter = 0; // Contador para los identificadores de las celdas
+    let cellCounter = 0;
 
     for (let i = 0; i < 3; i++) {
       cartonHTML += '<tr>';
       for (let j = 0; j < 5; j++) {
         const numero = numeros[i * 5 + j];
-        const cellId = `cell${cellCounter}`; // Crear un identificador único
+        const cellId = `cell${cellCounter}`;
         cartonHTML += `<td id="${cellId}">${numero}</td>`;
         cellCounter++;
       }
@@ -51,7 +51,6 @@ function aJugar() {
     cartonHTML += '</table>';
     return cartonHTML;
   }
-
 
   res1.innerHTML = formatearCarton(jugador);
   res2.innerHTML = formatearCarton(maquina);
@@ -63,7 +62,7 @@ function aJugar() {
   return jugador && maquina;
 }
 
-//Generar y comprobar Números
+// Generar y comprobar números
 function generarNumero() {
   if (numerosTotal.length >= 90) {
     alert('No puedes generar más de 90 números');
@@ -71,13 +70,13 @@ function generarNumero() {
   }
   let randomNum;
   do {
-      randomNum = Math.floor(Math.random() * 90) + 1;
+    randomNum = Math.floor(Math.random() * 90) + 1;
   } while (numerosTotal.includes(randomNum));
 
   numerosTotal.push(randomNum);
   refreshNumeros();
 
-  //Comprobar el número coincidente.
+  // Comprobar el número coincidente.
   const randomNumEstilo = document.getElementById("resultados2");
   randomNumEstilo.innerText = 'Último Número generado: ' + randomNum;
 
@@ -85,24 +84,11 @@ function generarNumero() {
 
   if (seEncontro) {
     const indice = jugador.indexOf(randomNum);
-    jugador[$indice].classList.add('numCoincidente');
+    jugador[indice].classList.add('numCoincidente');
   }
 }
-/*
-* if (seEncontro) {
-  const indice = miArray.indexOf(elementoBuscado);
-  console.log(`El elemento ${elementoBuscado} se encuentra en la posición ${indice}`);
-} else {
-  console.log(`El elemento ${elementoBuscado} no se encuentra en el array.`);
-}
-*
-*
-* */
-
 
 function refreshNumeros() {
   const res = document.getElementById("resultados");
   res.innerHTML = 'Números Generados: ' + numerosTotal.join(', ');
 }
-
-
